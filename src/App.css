@@ -19,5 +19,10 @@
   height: 70%;
 }
 .selector {
-  width: 400px;
+  width: 300px;
+}
+.colorOption img {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
 }
