@@ -13,7 +13,13 @@ import img9974 from './assets/images/9974.png';
 import img9975 from './assets/images/9975.png';
 import img9976 from './assets/images/9976.png';
 
-const images = {
+type ImagesType = {
+  [key: string]: unknown
+}
+
+type valueOption = { value: string; label: string; } | null;
+
+const images: ImagesType = {
   '0008': img0008,
   '0051': img0051,
   '0054': img0054,
@@ -70,33 +76,35 @@ const options = [
 ];
 
 function App() {
-  const [value1, setValue1] = useState(options[0]);
-  const [value2, setValue2] = useState(options[1]);
-  const [value3, setValue3] = useState(options[5]);
+  const [value1, setValue1] = useState<valueOption>(options[0]);
+  const [value2, setValue2] = useState<valueOption>(options[1]);
+  const [value3, setValue3] = useState<valueOption>(options[5]);
 
   const getStyle1 = () => {
+    if (value1 === null) {
+      return {};
+    }
     return {
       backgroundImage: `url(${images[value1.value]})`,
     };
   };
 
   const getStyle2 = () => {
+    if (value2 === null) {
+      return {};
+    }
     return {
       backgroundImage: `url(${images[value2.value]})`,
     };
   };
 
   const getStyle3 = () => {
+    if (value3 === null) {
+      return {};
+    }
     return {
       backgroundImage: `url(${images[value3.value]})`,
     };
-  };
-
-  const selectStyles = {
-    control: (baseStyles, state) => ({
-      ...baseStyles,
-      textColor: 'black',
-    }),
   };
 
   return (
@@ -105,7 +113,6 @@ function App() {
         <div className="top" style={getStyle1()}>
           <div className="selector">
             <Select
-              styles={selectStyles}
               options={options}
               onChange={setValue1}
               defaultValue={value1}
@@ -115,7 +122,6 @@ function App() {
         <div className="middle" style={getStyle2()}>
           <div className="selector">
             <Select
-              styles={selectStyles}
               options={options}
               onChange={setValue2}
               defaultValue={value2}
@@ -125,7 +131,6 @@ function App() {
         <div className="bottom" style={getStyle3()}>
           <div className="selector">
             <Select
-              styles={selectStyles}
               options={options}
               onChange={setValue3}
               defaultValue={value3}
