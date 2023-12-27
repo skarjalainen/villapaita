@@ -262,7 +262,7 @@ const options = [
   },
   {
     value: '9983',
-    label: '9983 Beige tweed',
+    label: '9983 Omenanvihreä',
     image: img9983,
   },
   {
@@ -273,9 +273,9 @@ const options = [
 ];
 
 function App() {
-  const [value1, setValue1] = useState<valueOption>(options[1]);
-  const [value2, setValue2] = useState<valueOption>(options[9]);
-  const [value3, setValue3] = useState<valueOption>(options[10]);
+  const [value1, setValue1] = useState<valueOption>(options[3]);
+  const [value2, setValue2] = useState<valueOption>(options[34]);
+  const [value3, setValue3] = useState<valueOption>(options[40]);
 
   const getStyle1 = () => {
     if (value1 === null) {
